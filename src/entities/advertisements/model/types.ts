@@ -27,7 +27,7 @@ export interface Advertisements {
   title: string;
   description: string;
   location: string;
-  images: string[] | null;
+  images?: string[];
   category: Category;
   realtyDetails?: Realty;
   autoDetails?: Auto;

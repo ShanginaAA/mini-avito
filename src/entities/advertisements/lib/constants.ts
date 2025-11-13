@@ -1,8 +1,9 @@
-export const CATEGORIES = {
-  realty: 'Недвижимость',
-  auto: 'Авто',
-  services: 'Услуги',
-} as const;
+export const CATEGORIES = [
+  { value: '', name: 'Все' },
+  { value: 'realty', name: 'Недвижимость' },
+  { value: 'auto', name: 'Авто' },
+  { value: 'services', name: 'Услуги' },
+] as const;
 
 export const REALTY_TYPES = [
   'Квартира',

@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import '@app/global.css';
+import '@fontsource/pt-sans';
+import '@fontsource/pt-sans/700.css';
 import { App } from '@app/App';
 
 const container = document.getElementById('root');
