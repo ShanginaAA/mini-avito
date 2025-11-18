@@ -16,11 +16,16 @@ export const fetchAdvertisements = createAsyncThunk<Advertisement[], void, { sta
   },
 );
 
-export const fetchAdvertisement = createAsyncThunk<any, any, { state: RootState }>(
-  'advertisements/fetchAdvertisement',
+export const fetchAdvertisementById = createAsyncThunk<any, any, { state: RootState }>(
+  'advertisements/fetchAdvertisementById',
   async (id, { rejectWithValue, getState }) => {
-    const { data } = await apiServer.get<Advertisement>(`items/${id}`);
-    return data;
+    return await apiServer
+      .get<Advertisement>(`items/${id}`)
+      .then((response) => response.data)
+      .catch((error) => {
+        console.log(error);
+        return rejectWithValue(error.response.data);
+      });
   },
 );
 

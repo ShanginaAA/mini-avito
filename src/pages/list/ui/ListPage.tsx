@@ -15,7 +15,7 @@ export const ListPage: FC = () => {
   const dispatch = useAppDispatch();
   const advertisements = useAppSelector(selectAdvertisements);
   const fetchStatus = useAppSelector(selectFetchStatus);
-  console.log(fetchStatus);
+
   useEffect(() => {
     dispatch(fetchAdvertisements());
   }, []);

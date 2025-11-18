@@ -6,9 +6,34 @@ import { AppRouter } from '@app/providers/routers';
 import { store } from '@app/providers/store';
 import { createTheme, ThemeProvider } from '@mui/material';
 
-const theme = createTheme({
+export const theme = createTheme({
   typography: {
     fontFamily: ['PT Sans', 'Roboto', 'sans-serif'].join(','),
+  },
+  palette: {
+    primary: {
+      dark: '#0e0e0e99',
+      light: '#e4e4e4',
+      main: '#1C252E',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      light: '#7494C2',
+      main: '#3e5b85',
+      dark: '#142F56',
+      contrastText: '#ffffff',
+    },
+    error: {
+      light: 'lightred',
+      main: '#cf222e',
+      dark: '#bb0a1e',
+      contrastText: '#ffffff',
+    },
+    success: {
+      main: '#2aa78e',
+      dark: '#009688',
+      contrastText: '#ffffff',
+    },
   },
 });
 
