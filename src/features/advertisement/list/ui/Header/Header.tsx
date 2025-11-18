@@ -1,8 +1,9 @@
 import { Box, Button, Typography } from '@mui/material';
 import { CButton } from '@shared/ui/buttons';
-import React from 'react';
+import { MouseEvent, FC } from 'react';
 
-export const Header = () => {
+export const Header: FC = () => {
+  const handlePlaceAd = (event: MouseEvent<HTMLButtonElement>) => {};
   return (
     <Box
       sx={{
@@ -14,7 +15,9 @@ export const Header = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         Список объявлений
       </Typography>
-      <CButton variant="contained">Разместить объявление</CButton>
+      <CButton variant="contained" onClick={handlePlaceAd}>
+        Разместить объявление
+      </CButton>
     </Box>
   );
 };

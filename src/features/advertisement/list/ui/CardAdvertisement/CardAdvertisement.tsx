@@ -2,13 +2,11 @@ import {
   Advertisement,
   AutoAdvertisement,
   RealEstateAdvertisement,
-  selectAdvertisements,
   ServiceAdvertisement,
 } from '@entities/advertisements';
-import { Box, Button, Card, CardContent, CardMedia, Chip, Grid, Typography } from '@mui/material';
-import { useAppSelector } from '@shared/hooks/useAppSelector';
+import { Box, Card, CardContent, CardMedia, Chip, Grid, Typography } from '@mui/material';
 import { CButton } from '@shared/ui/buttons';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type CardProps = {
@@ -97,7 +95,7 @@ export const CardAdvertisement: FC<CardProps> = ({ advertisement }) => {
 
           <CButton
             fullWidth
-            variant="outlined"
+            variant="contained"
             sx={{ mt: 1, fontSize: 14 }}
             onClick={(e) => {
               e.stopPropagation();

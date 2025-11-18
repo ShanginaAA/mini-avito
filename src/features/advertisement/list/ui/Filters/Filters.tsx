@@ -19,7 +19,7 @@ export const Filters = () => {
               fontWeight: 700,
               fontSize: '16px',
               letterSpacing: '0.9px',
-              backgroundColor: activeCategory == item.value ? '#282828' : '#f9f9f9',
+              backgroundColor: activeCategory == item.value ? '#282828' : '#f1f1f1',
               color: activeCategory === item.value ? '#fff' : 'inherit',
               borderRadius: '25px',
               cursor: 'pointer',
@@ -27,7 +27,7 @@ export const Filters = () => {
               width: 'auto',
               transition: 'all 0.2s ease-in-out',
               '&:hover': {
-                backgroundColor: activeCategory === item.value ? '#282828' : '#f3f3f3ff',
+                backgroundColor: activeCategory === item.value ? '#282828' : '#e4e4e4',
               },
             }}
           />
