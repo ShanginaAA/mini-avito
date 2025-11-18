@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Advertisements } from './types';
+import { Advertisement } from './types';
 import { fetchAdvertisements } from './actions';
 
 export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed';
 
 interface AdvertisementsSliceState {
-  items: Advertisements[];
+  items: Advertisement[];
   fetchingStatus: RequestStatus;
   error: string | null;
 }

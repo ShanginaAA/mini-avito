@@ -7,8 +7,8 @@ export const Filters = () => {
   const [activeCategory, setActiveCategory] = useState<string>('');
 
   return (
-    <Grid container spacing={2} alignItems={'center'}>
-      <Grid display="flex" size={'auto'} gap={1}>
+    <Grid container spacing={3} alignItems={'center'}>
+      <Grid container size={{ xs: 12, md: 6 }} spacing={1}>
         {CATEGORIES.map((item) => (
           <Chip
             key={item.value}
@@ -33,7 +33,7 @@ export const Filters = () => {
           />
         ))}
       </Grid>
-      <Grid size="grow">
+      <Grid size={{ xs: 12, md: 6 }}>
         <CInput variant="outlined" placeholder="Поиск объявлений" />
       </Grid>
     </Grid>

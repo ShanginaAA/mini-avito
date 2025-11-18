@@ -1,40 +1,38 @@
 export type Category = 'Недвижимость' | 'Авто' | 'Услуги';
 
-export interface Realty {
-  type: string;
+export interface BaseAdvertisements {
+  id: string;
+  name: string;
+  description: string;
+  location: string;
+  image?: string;
+  type: Category;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RealEstateAdvertisement extends BaseAdvertisements {
+  propertyType: string;
   area: number;
   rooms: number;
   price: number;
 }
 
-export interface Auto {
+export interface AutoAdvertisement extends BaseAdvertisements {
   brand: string;
   model: string;
   year: number;
   mileage?: number;
-  price: number;
 }
 
-export interface Service {
+export interface ServiceAdvertisement extends BaseAdvertisements {
   serviceType: string;
   experience: number;
-  price: number;
-  schedule?: string;
+  cost: number;
+  workSchedule?: string;
 }
 
-export interface Advertisements {
-  id: string;
-  title: string;
-  description: string;
-  location: string;
-  images?: string[];
-  category: Category;
-  realtyDetails?: Realty;
-  autoDetails?: Auto;
-  serviceDetails?: Service;
-  createdAt: string;
-  updatedAt: string;
-}
+export type Advertisement = RealEstateAdvertisement | AutoAdvertisement | ServiceAdvertisement;
 
-export type CreateAdvertisementDto = Omit<Advertisements, 'id' | 'createdAt' | 'updatedAt'>;
-export type UpdateAdvertisementDto = Partial<CreateAdvertisementDto>;
+// export type CreateAdvertisementDto = Omit<BaseAdvertisements, 'id' | 'createdAt' | 'updatedAt'>;
+// export type UpdateAdvertisementDto = Partial<CreateAdvertisementDto>;

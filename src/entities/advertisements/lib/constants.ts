@@ -1,6 +1,6 @@
 export const CATEGORIES = [
   { value: '', name: 'Все' },
-  { value: 'realty', name: 'Недвижимость' },
+  { value: 'realEstate', name: 'Недвижимость' },
   { value: 'auto', name: 'Авто' },
   { value: 'services', name: 'Услуги' },
 ] as const;
