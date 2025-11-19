@@ -42,6 +42,5 @@ export const ListPage: FC = () => {
         {renderCardAdvertisements()}
       </Grid>
     </BaseLayout>
-    // <Grid >
   );
 };

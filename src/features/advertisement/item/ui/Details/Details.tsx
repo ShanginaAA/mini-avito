@@ -11,9 +11,9 @@ import { useNavigate } from 'react-router-dom';
 import { AutoDetails, RealEstateDetails, ServiceDetails } from './SpecificDetails';
 import { Box, Divider, Grid, Typography } from '@mui/material';
 
-type DetailsProps = {
+interface DetailsProps {
   advertisement: Advertisement;
-};
+}
 
 export const Details: FC<DetailsProps> = ({ advertisement }) => {
   const navigate = useNavigate();
@@ -50,19 +50,29 @@ export const Details: FC<DetailsProps> = ({ advertisement }) => {
         <Typography variant="h4" component="h1" gutterBottom>
           {advertisement.name}
         </Typography>
-
-        <Grid sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
-          <Typography variant="body2" color="textSecondary">
-            {advertisement.location}
+        <Typography variant="body2" color="textSecondary">
+          {advertisement.location}
+        </Typography>
+        <Divider sx={{ mb: 3 }} />
+        <Grid sx={{ mb: 4 }}>
+          <Typography variant="h6" gutterBottom>
+            Подробности
+          </Typography>
+          {renderSpecificDetails()}
+        </Grid>
+        <Grid sx={{ mb: 4 }}>
+          <Typography variant="h6" gutterBottom>
+            Описание
+          </Typography>
+          <Typography variant="body1" sx={{ whiteSpace: 'pre-line' }}>
+            {advertisement.description}
           </Typography>
         </Grid>
-        <Divider sx={{ mb: 3 }} />
-        {renderSpecificDetails()}
+
+        <CButton variant="contained" onClick={handleEditAdvertisement} sx={{ width: 250 }}>
+          Редактировать
+        </CButton>
       </Grid>
     </Grid>
   );
-
-  // <CButton variant="contained" onClick={handleEditAdvertisement} sx={{ width: 250 }}>
-  //   Редактировать
-  // </CButton>
 };

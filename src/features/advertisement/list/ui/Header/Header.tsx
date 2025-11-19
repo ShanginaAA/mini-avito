@@ -1,9 +1,13 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { CButton } from '@shared/ui/buttons';
-import { MouseEvent, FC } from 'react';
+import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Header: FC = () => {
-  const handlePlaceAd = (event: MouseEvent<HTMLButtonElement>) => {};
+  const navigate = useNavigate();
+  const handlePlaceAd = () => {
+    navigate(`/form`);
+  };
   return (
     <Box
       sx={{

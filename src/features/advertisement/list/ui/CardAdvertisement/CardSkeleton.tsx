@@ -1,9 +1,9 @@
 import { Box, Card, CardContent, Grid, Skeleton } from '@mui/material';
 import { FC } from 'react';
 
-type CardSkeletonProps = {
+interface CardSkeletonProps {
   count?: number;
-};
+}
 
 export const CardSkeleton: FC<CardSkeletonProps> = ({ count = 3 }) => {
   return [...Array(count)].map((_, index) => (

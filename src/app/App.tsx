@@ -9,6 +9,26 @@ import { createTheme, ThemeProvider } from '@mui/material';
 export const theme = createTheme({
   typography: {
     fontFamily: ['PT Sans', 'Roboto', 'sans-serif'].join(','),
+    h2: {
+      fontWeight: 700,
+      letterSpacing: 0.4,
+    },
+    h4: {
+      fontWeight: 700,
+      letterSpacing: 0.4,
+    },
+    h6: {
+      fontWeight: 700,
+      letterSpacing: 0.4,
+    },
+    body1: {
+      fontWeight: 400,
+      letterSpacing: 0.4,
+    },
+    body2: {
+      fontWeight: 400,
+      letterSpacing: 0.4,
+    },
   },
   palette: {
     primary: {

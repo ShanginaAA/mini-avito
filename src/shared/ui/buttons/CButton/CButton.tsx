@@ -13,7 +13,7 @@ const StyledButton = styled(Button)<CustomButtonProps>(({ theme, loading }) => (
     'background-color .3s ease, color .3s ease, border-radius .3s ease, scale .3s ease, box-shadow .3s ease',
   '&:hover': {
     borderRadius: 20,
-    color: theme.palette.primary.dark,
+    color: '#000',
     backgroundColor: theme.palette.primary.light,
     scale: 1.05,
     boxShadow:

@@ -1,10 +1,9 @@
 import { Box, SxProps, Theme, Typography } from '@mui/material';
-import { CButton } from '@shared/ui/buttons';
-import { FC, MouseEvent, useEffect } from 'react';
+import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { theme } from '@app/App';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Header: FC = () => {
   const navigate = useNavigate();
@@ -20,10 +19,10 @@ export const Header: FC = () => {
   );
 };
 
-type BackToListProps = {
+interface BackToListProps {
   onClick: () => void;
   sx?: SxProps<Theme>;
-};
+}
 
 const BackToList: FC<BackToListProps> = ({ onClick, sx = {} }) => {
   return (

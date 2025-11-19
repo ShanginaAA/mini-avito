@@ -9,9 +9,9 @@ import { CButton } from '@shared/ui/buttons';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-type CardProps = {
+interface CardProps {
   advertisement: Advertisement;
-};
+}
 
 export const CardAdvertisement: FC<CardProps> = ({ advertisement }) => {
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ export const CardAdvertisement: FC<CardProps> = ({ advertisement }) => {
             📍 {advertisement.location}
           </Typography>
           <Typography
-            variant="body2"
+            variant="body1"
             sx={{
               display: '-webkit-box',
               WebkitLineClamp: 2,

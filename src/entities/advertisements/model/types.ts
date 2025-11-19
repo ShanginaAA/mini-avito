@@ -34,5 +34,8 @@ export interface ServiceAdvertisement extends BaseAdvertisements {
 
 export type Advertisement = RealEstateAdvertisement | AutoAdvertisement | ServiceAdvertisement;
 
-// export type CreateAdvertisementDto = Omit<BaseAdvertisements, 'id' | 'createdAt' | 'updatedAt'>;
-// export type UpdateAdvertisementDto = Partial<CreateAdvertisementDto>;
+export type AdvertisementFormData = Omit<Advertisement, 'id' | 'createdAt' | 'updatedAt'>;
+
+export type RealEstateFormData = Omit<RealEstateAdvertisement, 'id' | 'createdAt' | 'updatedAt'>;
+export type AutoFormData = Omit<AutoAdvertisement, 'id' | 'createdAt' | 'updatedAt'>;
+export type ServiceFormData = Omit<ServiceAdvertisement, 'id' | 'createdAt' | 'updatedAt'>;
