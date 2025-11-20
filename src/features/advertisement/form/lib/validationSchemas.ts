@@ -17,7 +17,7 @@ const baseAdvertisementSchema = z.object({
   type: z.enum(['Недвижимость', 'Авто', 'Услуги']).refine((val) => val !== undefined, {
     message: 'Выберите категорию',
   }),
-  images: z.string().optional(),
+  image: z.string().optional(),
 });
 
 const realEstateSchema = baseAdvertisementSchema.extend({
