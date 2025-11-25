@@ -6,6 +6,8 @@
 # testing
 /coverage
 
+/.cursor
+
 # production
 /build
 
