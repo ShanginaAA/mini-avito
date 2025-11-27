@@ -1,11 +1,8 @@
 import {
   Advertisement,
   AdvertisementFormData,
-  AutoAdvertisement,
   AutoFormData,
-  RealEstateAdvertisement,
   RealEstateFormData,
-  ServiceAdvertisement,
   ServiceFormData,
 } from '@entities/advertisements';
 import { AdvertisementFormValues, DEFAULT_VALUES } from './formValues';

@@ -23,16 +23,17 @@ export const useAdvertisementForm = () => {
   const advertisement = useAppSelector(selectCurrentAdvertisement);
   const fetchByIdStatus = useAppSelector(selectFetchByIdStatus);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const formOptions = {
     resolver: zodResolver(advertisementSchema) as Resolver<AdvertisementFormValues>,
     defaultValues: DEFAULT_VALUES,
+    mode: 'onChange' as const,
   };
 
-  const { control, watch, reset, trigger, setValue, getValues, handleSubmit, formState } =
-    useForm<AdvertisementFormValues>(formOptions);
+  const form = useForm<AdvertisementFormValues>(formOptions);
+  const { control, watch, reset, trigger, setValue, getValues, handleSubmit, formState } = form;
 
   // Загружаем объявление для редактирования, если его ещё нет в сторе
   useEffect(() => {
@@ -87,6 +88,7 @@ export const useAdvertisementForm = () => {
   const isInitialLoading = isEditMode && fetchByIdStatus === 'loading';
 
   return {
+    form,
     control,
     watch,
     reset,

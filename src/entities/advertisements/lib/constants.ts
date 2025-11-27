@@ -13,7 +13,7 @@ export const REALTY_TYPES = [
   'Апартаменты',
   'Комната',
   'Участок',
-] as const;
+];
 
 export const AUTO_BRANDS = [
   'Toyota',

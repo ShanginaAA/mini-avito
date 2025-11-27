@@ -4,7 +4,7 @@ type AdvertisementFormValues = {
   name: string;
   description: string;
   location: string;
-  type: Category;
+  type: Category | '';
   image?: string;
   // Real estate
   propertyType?: string;
@@ -27,7 +27,7 @@ const DEFAULT_VALUES: AdvertisementFormValues = {
   name: '',
   description: '',
   location: '',
-  type: 'Недвижимость',
+  type: '',
   image: '',
   propertyType: '',
   area: undefined,

@@ -1,65 +1,81 @@
-import { FormControl, styled, TextField, TextFieldProps } from '@mui/material';
-import React from 'react';
+import {
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  styled,
+  TextField,
+  TextFieldProps,
+  Typography,
+} from '@mui/material';
+import { FC } from 'react';
 
-interface CustomTextFieldProps extends Omit<TextFieldProps, 'variant'> {
-  variant?: 'outlined' | 'filled' | 'standard';
-  helperText?: string;
-  error?: boolean;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  fullWidth?: boolean;
-}
+const StyledFormControl = styled(FormControl)(({ theme }) => ({
+  width: '100%',
+  gap: '3px',
+}));
 
-const StyledTextField = styled(TextField)<CustomTextFieldProps>(({ theme }) => ({
+const StyledTextField = styled(TextField)(({ theme }) => ({
   '& .MuiOutlinedInput-root': {
-    borderRadius: 8,
-    fontFamily: '"PT Sans", Arial, sans-serif',
-    transition: 'all 0.2s ease-in-out',
-
-    '&:hover .MuiOutlinedInput-notchedOutline': {
+    borderRadius: 14,
+    backgroundColor: theme.palette.common.white,
+    transition: 'box-shadow .2s ease, border-color .2s ease',
+    '& fieldset': {
+      borderColor: theme.palette.grey[300],
+    },
+    '&:hover fieldset': {
       borderColor: theme.palette.primary.main,
     },
-
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderWidth: 2,
-      borderColor: theme.palette.primary.main,
+    '&.Mui-focused fieldset': {
+      borderColor: theme.palette.primary.dark,
+      boxShadow: `0 0 0 2px ${theme.palette.primary.main}1a`,
     },
-
-    '&.Mui-error': {
-      '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.error.main,
-      },
+    '&.Mui-error fieldset': {
+      borderColor: theme.palette.error.main,
     },
   },
-
-  '& .MuiInputLabel-root': {
-    fontFamily: '"PT Sans", Arial, sans-serif',
-
-    '&.Mui-focused': {
-      color: theme.palette.primary.main,
-    },
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1.5, 2),
+    fontSize: 16,
   },
-
-  '& .MuiFormHelperText-root': {
-    fontFamily: '"PT Sans", Arial, sans-serif',
-    marginLeft: 0,
+  '& .MuiInputBase-multiline': {
+    padding: 0,
   },
 }));
 
-export const CTextField = () => {
+export const CTextField: FC<TextFieldProps> = ({
+  label,
+  error,
+  helperText,
+  required,
+  ...restProps
+}) => {
   return (
-    <FormControl fullWidth={fullWidth} error={showError}>
-      <StyledTextField
-        variant={variant}
-        error={showError}
-        fullWidth={fullWidth}
-        InputProps={inputProps}
-        helperText={undefined} // Убираем стандартный helperText
-        {...(formik && field)}
-        {...props}
-      />
+    <StyledFormControl>
+      {label ? (
+        <InputLabel
+          shrink
+          sx={{
+            fontWeight: 700,
+            backgroundColor: '#fff',
+            padding: '0px 5px',
+            color: error ? 'error.main' : 'text.primary',
+          }}
+        >
+          {label}
+          {required ? (
+            <Typography component="span" color="error.main" ml={0.5}>
+              *
+            </Typography>
+          ) : null}
+        </InputLabel>
+      ) : null}
 
-      {showHelperText && <FormHelperText sx={{ mx: 0 }}>{showHelperText}</FormHelperText>}
-    </FormControl>
+      <StyledTextField {...restProps} error={error} required={required} label={undefined} />
+      {helperText ? (
+        <FormHelperText error={error} sx={{ margin: 0 }}>
+          {helperText}
+        </FormHelperText>
+      ) : null}
+    </StyledFormControl>
   );
 };

@@ -24,6 +24,7 @@ export default {
       '@features': path.resolve(__dirname, 'src/features'),
       '@entities': path.resolve(__dirname, 'src/entities'),
       '@shared': path.resolve(__dirname, 'src/shared'),
+      '@widgets': path.resolve(__dirname, 'src/widgets'),
     },
   },
 
@@ -42,6 +43,7 @@ export default {
                 '@features/*': ['src/features/*'],
                 '@entities/*': ['src/entities/*'],
                 '@shared/*': ['src/shared/*'],
+                '@widgets/*': ['src/widgets/*'],
               },
             },
           },

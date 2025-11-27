@@ -6,7 +6,7 @@ export interface BaseAdvertisements {
   description: string;
   location: string;
   image?: string;
-  type: Category;
+  type: Category | '';
   createdAt: string;
   updatedAt: string;
 }
